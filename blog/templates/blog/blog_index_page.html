@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% load static %}
+{% block content %}
+<body style="background-color: #222222;">
+<div id="mycarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="item active">
+        <img src="{% static '/pics/books1v1.png' %}" alt="" style="width:100%;" class="img-responsive">
+           <div class="carousel-caption" style="font-family: 'Playball', cursive; color: #DBC1AD  ;">
+           <h1 class="display-2">The Blog</h1>
+           </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-offset-2 col-sm-8 ">
+{% for post in blogpage %}
+    {% with post=post.specific %}
+      <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+      <h5 style="color: #DBC1AD  ;"><span class="glyphicon glyphicon-time"></span> Post by {{ post.author }}, {{ post.date }}</h5>
+      <hr>
+      <br>
+    {% endwith %}
+{% endfor %}
+
+
+    </div>
+</body>
+{% endblock %}

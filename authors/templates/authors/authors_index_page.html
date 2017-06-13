@@ -18,17 +18,16 @@
 
 {% for post in authorpage %}
     {% with post=post.specific %}
-    <br>
-    <br>
-    <div class="col-sm-offset-1">
+
+    <div class="col-sm-offset-1" >
        
           {% with post.main_image as main_image %}
             {% if main_image %}
-                {% image main_image fill-400x350 class="col-sm-2 img-circle img-responsive" %}
+                {% image main_image fill-400x350 class="col-sm-2 img-circle img-responsive" style="margin-top: 40px" %}
             {% endif %}
         {% endwith %}
  
-        <h1 class="col-sm-9" style="font-family: 'Playball', cursive; color: #DBC1AD; margin-top: 0;"><a href="{% pageurl post %}">{{ post.title|richtext }}</a></h1>
+        <h1 class="col-sm-9" style="font-family: 'Playball', cursive; color: #DBC1AD; margin-top: 40px;"><a href="{% pageurl post %}">{{ post.title|richtext }}</a></h1>
         <p class="col-sm-9" >Height: {{ post.height }} | Age: {{ post.age }} | Location: {{ post.location }}</p>
         <p class="col-sm-9">Routine: {{ post.routine }} | Diet: {{ post.diet }}</p>
         <p class="col-sm-9"><a  href="{{ post.myfitnesspal }}">MyFitnessPal</a> | <a href="{{ post.instagram }}">Instagram</a></p>
