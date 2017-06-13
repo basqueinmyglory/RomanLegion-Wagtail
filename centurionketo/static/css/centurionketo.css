@@ -1,0 +1,35 @@
+body {
+    background-color: #222222;
+    color: #DBC1AD;
+}
+
+
+.navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+/* Add a gray background color and some padding to the footer */
+footer {
+      /*background-color: hsl(0, 60%, 12%);*/
+      padding: 25px;
+    }
+    
+.carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+
+
+@media (max-width: 600px) {
+.carousel-caption {
+      display: none; 
+    }
+  }
+
+p {
+  color: white;
+  font-size: 1.3em;
+  line-height: 1.5em;
+}

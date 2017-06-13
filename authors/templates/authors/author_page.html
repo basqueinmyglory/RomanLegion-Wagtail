@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% load static %}
+{% block content %}
+
+<div id="mycarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="item active">
+        <img src="{% static '/pics/ketobasque1v1.jpg' %}" alt="" style="width:100%;" class="img-responsive">
+           <div class="carousel-caption" style="font-family: 'Playball', cursive; color: #460000  ;">
+           <h1 class="display-2">{{ page.title }}</h1>
+           </div>
+        </div>
+    </div>
+</div>
+
+
+    <br>
+    <br>
+    <div class="col-sm-offset-1">
+        <img src="#" alt="" style="width:250px;" class="col-sm-2 img-circle img-responsive">
+        <h1 class="col-sm-9" style="font-family: 'Playball', cursive; color: #DBC1AD; margin-top: 0;">{{ page.title|richtext }}</a></h1>
+        <p class="col-sm-9">Height: {{ page.height }} | Age: {{ page.age }} | Location: {{ page.location }}</p>
+        <p class="col-sm-9">Routine: {{ page.routine }} | Diet: {{ page.diet }}</p>
+        <p class="col-sm-9"><a  href="#">MyFitnessPal</a> | <a href="#">Instagram</a></p>
+    </div>
+
+
+
+{% endblock %}
