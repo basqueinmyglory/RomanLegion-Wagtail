@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% load static %}
 {% block content %}
-
+<body style="background-color: #222222;">
 <div id="mycarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="item active">
@@ -15,18 +15,27 @@
         </div>
     </div>
 </div>
+<br>
+<br>
+<div class="col-sm-offset-1">
+    
+
+        {% if page.main_image %}
+            {% image page.main_image fill-400x350 class="col-sm-2 img-circle img-responsive" %}
+        {% endif %}
 
 
-    <br>
-    <br>
-    <div class="col-sm-offset-1">
-        <img src="#" alt="" style="width:250px;" class="col-sm-2 img-circle img-responsive">
-        <h1 class="col-sm-9" style="font-family: 'Playball', cursive; color: #DBC1AD; margin-top: 0;">{{ page.title|richtext }}</a></h1>
-        <p class="col-sm-9">Height: {{ page.height }} | Age: {{ page.age }} | Location: {{ page.location }}</p>
-        <p class="col-sm-9">Routine: {{ page.routine }} | Diet: {{ page.diet }}</p>
-        <p class="col-sm-9"><a  href="#">MyFitnessPal</a> | <a href="#">Instagram</a></p>
-    </div>
-
+    <h1 class="col-sm-9" style="font-family: 'Playball', cursive; color: #DBC1AD; margin-top: 0;">{{ page.title|richtext }}</h1>
+    <p class="col-sm-9" >Height: {{ page.height }} | Age: {{ page.age }} | Location: {{ page.location }}</p>
+    <p class="col-sm-9">Routine: {{ page.routine }} | Diet: {{ page.diet }}</p>
+    <p class="col-sm-9"><a  href="{{ post.myfitnesspal }}">MyFitnessPal</a> | <a href="{{ post.instagram }}">Instagram</a></p>
+</div>
+    <hr class="col-sm-offset-1 col-sm-10">
+<div class="col-sm-offset-1 col-sm-10" style="color: #DBC1AD;">
+    <h2 class="col-sm-12 text-center">About</h2>
+    {{ page.body | richtext }}
+</div>
+</body>
 
 
 {% endblock %}
