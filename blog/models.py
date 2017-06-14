@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 from wagtail.wagtailcore.models import Page, Orderable
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel
@@ -33,14 +34,6 @@ class AuthorPage(Page):
     myfitnesspal = models.CharField(max_length=250)
     instagram = models.CharField(max_length=250)
     body = RichTextField(blank=True)
-
-    def get_context(self, request):
-        # Update context to include only published posts, ordered by reverse-chron
-        context = super(AuthorPage, self).get_context(request)
-
-        blogpage = BlogIndexPage.get_children(self).live()
-        context['blogpage'] = blogpage
-        return context
 
     def main_image(self):
         gallery_item = self.gallery_images.first()
@@ -93,13 +86,15 @@ class BlogIndexPage(Page):
     ]
 
 class BlogPage(Page):
+
+    intro = RichTextField(blank=True,max_length=250)
     date = models.DateField("Post date")
-    author = models.CharField(max_length=50)
     body = RichTextField(blank=True)
 
 
     content_panels = Page.content_panels + [
         FieldPanel('date'),
-        FieldPanel('author'),
+        FieldPanel('intro'),
         FieldPanel('body', classname="full"),
+
     ]

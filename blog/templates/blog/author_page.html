@@ -24,28 +24,16 @@
     <h1 class="col-sm-9" style="font-family: 'Playball', cursive; color: #DBC1AD; margin-top: 0;">{{ page.title|richtext }}</h1>
     <p class="col-sm-9" >Height: {{ page.height }} | Age: {{ page.age }} | Location: {{ page.location }}</p>
     <p class="col-sm-9">Routine: {{ page.routine }} | Diet: {{ page.diet }}</p>
-    <p class="col-sm-9"><a  href="{{ post.myfitnesspal }}">MyFitnessPal</a> | <a href="{{ post.instagram }}">Instagram</a></p>
+    <p class="col-sm-9"><a  href="{{ post.myfitnesspal }}">MyFitnessPal</a> | <a href="{{ post.instagram }}">Instagram</a> | <a href="{{ post.instagram }}">Posts</a></p>
 </div>
 
-<hr class="col-sm-offset-1 col-sm-10">
     
-<div class="col-sm-offset-1 col-sm-5" style="color: #DBC1AD; font-size: 12px;">
+<div class="col-sm-offset-1 col-sm-10" style="color: #DBC1AD; font-size: 12px;">
     <h2 class="col-sm-12 text-center">About</h2>
     {{ page.body | richtext }}
 </div>
 
 
-<div class="col-sm-5" style="color: #DBC1AD; font-size: 12px;">
-    <h2 class="col-sm-12 text-center">Posts</h2>
-{% for post in blogpage %}
-    {% with post=post.specific %}
-      <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
-      <h5 style="color: #DBC1AD  ;"><span class="glyphicon glyphicon-time"></span> Post by {{ post.author }}, {{ post.date }}</h5>
-      <hr>
-      <br>
-    {% endwith %}
-{% endfor %}
-</div>
 
 </body>
 

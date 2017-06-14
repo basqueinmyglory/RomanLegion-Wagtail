@@ -16,13 +16,24 @@
     </div>
 </div>
 
-<div class="col-sm-offset-2 col-sm-8 ">
+<div class="col-sm-offset-1 col-sm-2 ">
+    <h3 style="font-family: 'Playball', cursive; color: #DBC1AD  ;">Authors:</h3>
+    <hr>
+{% for post in blogpage %}
+    {% with post=post.specific %}
+      <h5 style="color: #DBC1AD  ;">{{ post.unique.owner }}</h5>
+      <br>
+    {% endwith %}
+{% endfor %}
+    </div>
+
+<div class="col-sm-8 ">
 {% for post in blogpage %}
     {% with post=post.specific %}
       <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
-      <h5 style="color: #DBC1AD  ;"><span class="glyphicon glyphicon-time"></span> Post by {{ post.author }}, {{ post.date }}</h5>
+      <h5 style="color: #DBC1AD  ;"><span class="glyphicon glyphicon-time"></span> Post by {{ post.owner }}, {{ post.date }}</h5>
+      <div style="font-size: 9px;">{{ post.intro|richtext }}</div>
       <hr>
-      <br>
     {% endwith %}
 {% endfor %}
 
